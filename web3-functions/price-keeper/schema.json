@@ -4,8 +4,6 @@
   "memory": 128,
   "timeout": 30,
   "userArgs": {
-    "watchList": "string []",
-    "countThreshold": "number",
-    "devWallet": "string"
+    "watchList": "string[]"
   }
 }
