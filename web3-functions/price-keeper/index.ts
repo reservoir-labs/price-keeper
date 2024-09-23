@@ -30,8 +30,6 @@ Web3Function.onRun(async (context: Web3FunctionContext) => {
 
     console.log("lapsedCount", lapsedCount);
     const [tokenA, tokenB] = pair.split('-');
-    console.log("tokenA", tokenA);
-    console.log("tokenB", tokenB);
 
     // Simulate updating price
     const reward = await reservoirPriceOracle.callStatic.updatePrice(
@@ -58,8 +56,6 @@ Web3Function.onRun(async (context: Web3FunctionContext) => {
     }
     storage.set(pair, lapsedCount.toString());
   }
-
-  console.log("hehe!");
 
   const calldata: Web3FunctionResultCallData[] = [];
   if (pairsToUpdate.length > 0) {

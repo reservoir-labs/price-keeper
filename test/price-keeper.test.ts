@@ -44,13 +44,25 @@ describe("Reservoir Price Oracle Keeper test", () => {
   })
 
   it("canExec: true", async () => {
+    // mock storage
+    context.storage = { "0xtokena-0xtokenb": "6" }
     const res = await runWeb3Function(w3fPath, context, [sepoliaFork.provider]);
 
     expect(res.result.canExec).toEqual(true);
   });
+
   it("canExec: false when price is within range", async () => {
     const res = await runWeb3Function(w3fPath, context, [sepoliaFork.provider]);
 
     expect(res.result.canExec).toEqual(false);
   });
+
+  it ("canExec: false when price is out of range but count is not at threshold", async () => {
+    // mock storage
+    context.storage = { "0xpairadd": "3" };
+
+    const res = await runWeb3Function(w3fPath, context, [sepoliaFork.provider]);
+
+    expect(res.result.canExec).toEqual(false);
+  })
 });
