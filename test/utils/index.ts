@@ -60,6 +60,7 @@ export const runWeb3Function = async (
     providers = [];
     for (const url of urls) {
       providers.push(new StaticJsonRpcProvider(url));
+      console.log("provider url", url)
     }
   }
 

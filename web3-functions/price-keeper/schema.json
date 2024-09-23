@@ -4,6 +4,8 @@
   "memory": 128,
   "timeout": 30,
   "userArgs": {
-    "watchList": "string[]"
+    "watchList": "string[]",
+    "oracle": "string",
+    "countThreshold": "number"
   }
 }
